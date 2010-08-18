@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{mongomatic-rails3}
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jordan West"]
@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     "lib/rails/generators/mongomatic/config/config_generator.rb",
+     "lib/rails/generators/mongomatic/config/templates/mongomatic.yml",
      "lib/rails/generators/mongomatic/model/model_generator.rb",
      "lib/rails/generators/mongomatic/model/templates/model.rb",
      "lib/rails/generators/mongomatic_generator.rb",
