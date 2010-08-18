@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
      "lib/rails/generators/mongomatic/model/templates/model.rb",
      "lib/rails/generators/mongomatic_generator.rb",
      "lib/rails/mongomatic.rb",
+     "lib/rails/mongomatic/railtie.rb",
      "lib/rails/mongomatic/support.rb"
   ]
   s.homepage = %q{http://mongomatic.com/}
