@@ -1,0 +1,56 @@
+= Rails::Mongomatic
+
+Rails 3 support for Mongomatic (http://www.mongomatic.com). Generators, url_for support, and more. 
+
+== Background
+
+Mongomatic is a minimalist framework. It strives to do just enough atop an already great Mongo driver. Not developed in an ActiveRecord style, the Mongomatic core can be used in Rails 3 but certain helpers are not supported. This library adds support certain Rails 3 features. Although the original developers continue to use the core of Mongomatic only in their work, we have provided this library for people extremely accustomed to parts of the Rails framework who still want to use Mongomatic, for convenience. There is a chance certain parts of this library will be merged into Mongomatic core but there is an equally likely chance they will not. 
+
+== Installation
+
+Add mongomatic-rails3 to your gemfile like this,
+
+  gem 'mongomatic-rails3', :require => 'rails/mongomatic'
+  
+See Config File below.
+
+== Config. File
+
+Mongomatic loads the database connection configuration file config/mongomatic.yml. In the spirit of Mongomatic the configuration file is, in our opinion, simpler than other OMs. This may change in the future depending on feedback. Simply define your configuration using Mongo::Connection. There cannot be any syntax errors and each connection must return an instance of Mongo::DB. 
+
+An example configuration file:
+  development: Mongo::Connection.new.db("test")
+  test: Mongo::Connection.new.db("test")
+  production: Mongo::Connection.new.db("test")
+  
+You can use ERB syntax inside of your file if pieces of connection options are shared between environments. So you can generate your config file instead of starting to type it by hand, mongomatic-rails3 provides a config generator. You will, however, need to make some changes to the connection options.
+
+You can generate the config file by running,
+  rails g mongomatic:config [DB]
+
+Run, 
+  rails g mongomatic:config --help
+for more information.
+
+== Generating Models
+
+Mongomatic fully implements the ActiveModel generator. This means that with mongmatic-rails3 installed running,
+  rails g model [NAME]
+
+will generate a class inheriting from Mongomatic::Base. Mongomatic supports per-class connections. You can specify one when generating your model. See below for more information. You can also run
+
+  rails g model --help
+  
+  Usage:
+    rails generate model NAME [field:type field:type] [options]
+
+  Mongomatic options:
+    -c, [--connection=Mongo::Connection.new.db('test')]  # Connection String
+    -e, [--expectations]                                 # Include Mongomatic::Expectations
+    
+    
+== Other Notes
+
+==== Scaffolds
+
+mongomatic-rails3 adds support for Scaffold generation, however, scaffold support is currently limited. This library does not *yet* support form_for, due to its hash-only data access syntax (you should instead use form_tag), which scaffolds generate in their views (*yet* will most likely mean a special form helper for Mongomatic). You can, however, still use scaffolds as a starting point.  
