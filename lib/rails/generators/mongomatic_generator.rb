@@ -15,7 +15,7 @@ module Mongomatic
       end
       
       def self.find(klass, params=nil)
-        (params.blank?) ? "#{klass}.find" : "#{klass}.find_one(BSON::ObjectID(#{params}))"
+        (params.blank?) ? "#{klass}.find" : "#{klass}.find_one(BSON::ObjectId(#{params}))"
       end
       
       def self.build(klass, params=nil)
