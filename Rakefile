@@ -11,7 +11,7 @@ begin
     gem.homepage = "http://mongomatic.com/"
     gem.authors = ["Jordan West"]
     gem.files = ["lib/**/*.rb", "lib/**/*.yml"]
-    gem.add_dependency "mongomatic", ">= 0.3.1"
+    gem.add_dependency "mongomatic", "~> 0.6.0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
