@@ -1,2 +1,7 @@
+= 0.0.2
+  - Update for Mongomatic 0.6.x and Mongo Ruby Driver 1.1.2
+  - Removed overlapping ActiveModel support in Mongomatic Core
+  - Added support to Mongomatic::Errors (#any?,#count) for scaffold support
+
 = 0.0.1
   - Include YAML template files causing config generator error
